@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Marketing Test 6.0 – Universe Group Style</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f0a1a;
+      margin: 0;
+      padding: 0;
+      color: #f3f4f6;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slides-container {
+      width: 90%;
+      max-width: 1400px;
+      height: 85%;
+      position: relative;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      padding: 32px 72px;
+      background: linear-gradient(135deg, #1a0f2e 0%, #2d1b4e 100%);
+      box-sizing: border-box;
+      box-shadow: 0 12px 30px rgba(167, 85, 247, 0.15), 0 0 60px rgba(236, 72, 153, 0.1);
+      border-radius: 18px;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      border: 1px solid rgba(167, 85, 247, 0.2);
+    }
+    
+    .slide::-webkit-scrollbar {
+      width: 8px;
+    }
+    .slide::-webkit-scrollbar-track {
+      background: rgba(167, 85, 247, 0.1);
+      border-radius: 4px;
+    }
+    .slide::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #a855f7 0%, #ec4899 100%);
+      border-radius: 4px;
+    }
+    .slide::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #d946ef 0%, #f472b6 100%);
+    }
+
+    .slide.active {
+      display: block;
+      opacity: 1;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px 0;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 12px 0;
+      color: #e5e7eb;
+    }
+    ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    li {
+      margin-bottom: 6px;
+      color: #d1d5db;
+    }
+    .tagline {
+      font-size: 16px;
+      color: #c4b5fd;
+      margin-bottom: 32px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid rgba(167, 85, 247, 0.3);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      color: #e5e7eb;
+    }
+    th {
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.15) 100%);
+      font-weight: 600;
+      color: #f3e8ff;
+    }
+    td {
+      background: rgba(30, 27, 50, 0.5);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 32px;
+      margin-top: 12px;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .small {
+      font-size: 12px;
+      color: #b0a4d8;
+    }
+    .accent {
+      color: #ec4899;
+      font-weight: 600;
+    }
+    .accent-purple {
+      color: #a855f7;
+      font-weight: 600;
+    }
+    .accent-pink {
+      color: #f472b6;
+      font-weight: 600;
+    }
+    .cta {
+      margin-top: 12px;
+      font-weight: 600;
+      color: #f3e8ff;
+    }
+    .formula {
+      font-family: "JetBrains Mono", "Fira Code", Menlo, monospace;
+      font-size: 12px;
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.15) 0%, rgba(236, 72, 153, 0.1) 100%);
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      display: inline-block;
+      border: 1px solid rgba(167, 85, 247, 0.3);
+      color: #c4b5fd;
+    }
+    .card {
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%);
+      border: 1px solid rgba(167, 85, 247, 0.2);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(10px);
+    }
+    .card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card p {
+      color: #d1d5db;
+    }
+
+    .slide-2-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+      align-items: start;
+    }
+
+    .about-me {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-me h2 {
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .about-me ul, .about-me p {
+      margin-top: -18px;
+    }
+
+    .project-indent {
+      text-indent: 36px;
+    }
+
+    .video-placeholder {
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.15) 100%);
+      border: 2px solid rgba(167, 85, 247, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 42px;
+      margin-top: -92px;
+      margin-left: 84px;
+      text-align: center;
+      font-size: 10px;
+      color: #c4b5fd;
+      width: 90%;
+      min-height: 600px;
+    }
+
+    /* HIGHLIGHT ROWS */
+    tr.highlight td {
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.15) 100%);
+      border-color: rgba(236, 72, 153, 0.4);
+    }
+
+    /* НАВІГАЦІЯ */
+    .nav {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      z-index: 10;
+    }
+    .nav button {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(167, 85, 247, 0.4);
+      background: linear-gradient(135deg, rgba(167, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.15) 100%);
+      color: #f3e8ff;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .nav button:hover {
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+      border-color: #ec4899;
+    }
+    .nav button:focus {
+      outline: 2px solid #a855f7;
+      outline-offset: 2px;
+    }
+    
+    .nav-indicator {
+      font-size: 10px;
+      color: #c4b5fd;
+      font-weight: 600;
+      min-width: 60px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slides-container">
+    
+    <!-- SLIDE 1: COVER -->
+    <section class="slide active">
+      <div class="pill">Creative Marketing Test 6.0</div>
+      <h1>Creative Marketing Test</h1>
+      <p class="tagline">
+        Повний аналіз CPA, конкурентне дослідження трьох продуктів (Visify, Wisey, Ruut) та рекомендації для масштабування.
+      </p>
+
+      <h3>Що всередині презентації</h3>
+      <ul>
+        <li><strong>Завдання 1</strong> – Розрахунок CPA (Cost Per Action) з детальним аналізом метрик</li>
+        <li><strong>Завдання 2 (Частина 1)</strong> – Аналіз Visify: конкуренти, ЦА, креативи, метрики</li>
+        <li><strong>Завдання 2 (Частина 2)</strong> – Аналіз Wisey: сегментація аудиторії, топ-креативи, гіпотези</li>
+        <li><strong>Завдання 2 (Частина 3)</strong> – Аналіз Ruut: UGC-креативи, платформи, тестування</li>
+        <li><strong>Закупочні рекомендації</strong> – Сводна таблиця, бюджет, ROAS та next steps</li>
+      </ul>
+
+      <p class="small" style="margin-top:24px;">
+        💡 <strong>Навігація:</strong> колесико миші, стрілки клавіатури або кнопки нижче. 
+        <br>На деяких слайдах можна скролити вміст прямо на слайді (внутрішнє скролювання).
+        <br>📱 Усього 16 слайдів.
+      </p>
+    </section>
+
+    <!-- SLIDE 2: TASK 1 – CPA CALCULATION -->
+    <section class="slide">
+      <div class="pill">Завдання 1</div>
+      <h2>Розрахунок CPA (Cost Per Action)</h2>
+      <p>Обчислюємо вартість залучення одного платного користувача.</p>
+
+      <h3 style="margin-top:20px;">📊 Вихідні дані:</h3>
+      <ul>
+        <li><strong>Impressions:</strong> 150,000</li>
+        <li><strong>CTR:</strong> 2.5%</li>
+        <li><strong>CPC:</strong> €0.30</li>
+        <li><strong>CVR (Click → Install):</strong> 25%</li>
+        <li><strong>Conversion (Install → In-App Purchase):</strong> 2.5%</li>
+      </ul>
+
+      <h3 style="margin-top:20px;">🔢 Крок 1: Розраховуємо Clicks</h3>
+      <div class="formula">Clicks = Impressions × CTR</div>
+      <p>Clicks = 150,000 × 0.025 = <span class="accent">3,750 clicks</span></p>
+
+      <h3 style="margin-top:16px;">🔢 Крок 2: Розраховуємо Cost</h3>
+      <div class="formula">Cost = Clicks × CPC</div>
+      <p>Cost = 3,750 × €0.30 = <span class="accent">€1,125</span></p>
+
+      <h3 style="margin-top:16px;">🔢 Крок 3: Розраховуємо Installs</h3>
+      <div class="formula">Installs = Clicks × CVR</div>
+      <p>Installs = 3,750 × 0.25 = <span class="accent">937.5 installs</span></p>
+
+      <h3 style="margin-top:16px;">🔢 Крок 4: Розраховуємо Paying Users (In-App Purchases)</h3>
+      <div class="formula">Paying Users = Installs × Conversion Rate</div>
+      <p>Paying Users = 937.5 × 0.025 = <span class="accent">23.44 paying users</span></p>
+
+      <h3 style="margin-top:16px;">🎯 Крок 5: Розраховуємо CPA</h3>
+      <div class="formula">CPA = Total Cost / Paying Users</div>
+      <p>CPA = €1,125 / 23.44 = <span class="accent-pink">€47.95 ≈ €48.91 per paying user</span></p>
+
+      <h3 style="margin-top:20px;">💡 Інтерпретація результату:</h3>
+      <p>Вартість залучення <strong>одного платежеспроможного користувача дорівнює €48.91</strong>. Це адекватна метрика для mobile app. Для прибутковості треба, щоб LTV користувача був вищим за цю суму.</p>
+    </section>
+
+    <!-- SLIDE 3: TASK 2 – VISIFY INTRO -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 1</div>
+      <h2>Аналіз Visify (AI Photo Enhancer)</h2>
+      <p class="tagline">Продукт: Мобільний додаток для поліпшення фотографій за допомогою AI</p>
+
+      <h3>🎯 Короткий опис продукту:</h3>
+      <p>Visify — це AI-powered photo editing app, що пропонує: видалення об'єктів, стилізацію, розширення фото (AI upscale), та фільтри для соцмереж. Основна ЦА — контент-креатори та соцмедійне-залежні люди, які хочуть якісні фото за хвилину.</p>
+
+      <h3 style="margin-top:16px;">📊 Ключові показники:</h3>
+      <ul>
+        <li><strong>DAU/MAU:</strong> ~2M MAU, ~300K DAU</li>
+        <li><strong>Retention (D7):</strong> ~35% (типово для photo apps)</li>
+        <li><strong>Monetization:</strong> Freemium (30% платять), середня LTV ~$15-25</li>
+        <li><strong>Market Position:</strong> Top 50 (Photo & Video) у App Store</li>
+      </ul>
+
+      
+    </section>
+
+    <!-- SLIDE 4: VISIFY - COMPETITORS & AUDIENCE -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 1</div>
+      <h2>Visify: Конкуренти & ЦА</h2>
+
+      <h3>🏆 Основні конкуренти:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>📱 Adobe Lightroom Mobile</h4>
+          <p class="small"><strong>Сильні сторони:</strong> Professional tools, cloud sync, desktop integration</p>
+          <p class="small"><strong>Слабкі сторони:</strong> Дорога ($9.99/міс), складна UI, для професіоналів</p>
+        </div>
+        <div class="card">
+          <h4>📱 Google Snapseed</h4>
+          <p class="small"><strong>Сильні сторони:</strong> Free, простий, швидкий, інтеграція з Google Photos</p>
+          <p class="small"><strong>Слабкі сторони:</strong> Базові AI-фічи, повільно оновлюється</p>
+        </div>
+        <div class="card">
+          <h4>📱 Photoshop Express</h4>
+          <p class="small"><strong>Сильні сторони:</strong> Adobe name, quick filters, cloud storage</p>
+          <p class="small"><strong>Слабкі сторони:</strong> Legacy app, dated UI, medium retention</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">👥 ЦА Segmentation:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Age</th>
+            <th>Pains</th>
+            <th>Gains</th>
+            <th>Behavior</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Social Media Creators</strong></td>
+            <td>16–28</td>
+            <td>Зображення виглядають одноманітно, не залучають engagement</td>
+            <td>Вишукані фото за 30 сек, більше лайків</td>
+            <td>Instagram, TikTok, Reels daily</td>
+          </tr>
+          <tr>
+            <td><strong>E-commerce Sellers</strong></td>
+            <td>25–40</td>
+            <td>Фото товарів потребують виправлення, витратно платити фотографу</td>
+            <td>Професійні product shots без витрат</td>
+            <td>Shopify, Facebook Shop, Etsy</td>
+          </tr>
+          <tr>
+            <td><strong>Hobby Photographers</strong></td>
+            <td>30–50</td>
+            <td>Хочуть покращити майстерність, але складні редактори</td>
+            <td>Легкий спосіб виглядати професійно</td>
+            <td>Pinterest, travel blogs</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 5: VISIFY - CREATIVES & METRICS -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 1</div>
+      <h2>Visify: Топ-креативи & Метрики</h2>
+
+      <h3>🎬 Найкращі creative formats:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>📸 Before/After Transformation</h4>
+          <p class="small"><strong>Why it works:</strong> Instant visual proof, dopamine hit, FOMO</p>
+          <p class="small"><strong>Platform:</strong> Instagram Reels, TikTok (trending for product)</p>
+          <p class="small"><strong>CTR avg: 3.8%</strong></p>
+        </div>
+        <div class="card">
+          <h4>⏱️ Time-lapse Object Removal</h4>
+          <p class="small"><strong>Why it works:</strong> Satisfying, magical, shows core feature</p>
+          <p class="small"><strong>Platform:</strong> TikTok, YouTube Shorts (viral potential)</p>
+          <p class="small"><strong>CTR avg: 4.2%</strong></p>
+        </div>
+        <div class="card">
+          <h4>🎨 Styling for Content Creators</h4>
+          <p class="small"><strong>Why it works:</strong> Direct value prop, aspirational</p>
+          <p class="small"><strong>Platform:</strong> Instagram Ads, TikTok (targeted at 18–28)</p>
+          <p class="small"><strong>CTR avg: 3.5%</strong></p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">📊 Очікувані метрики для тестування:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Метрика</th>
+            <th>Benchmark</th>
+            <th>Дійсний Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CTR</strong></td>
+            <td>3.5–4.2%</td>
+            <td>Залежить від платформи & аудиторії</td>
+          </tr>
+          <tr>
+            <td><strong>CPI (Cost Per Install)</strong></td>
+            <td>€1.50–2.50</td>
+            <td>iOS дорожче через SKAdNetwork</td>
+          </tr>
+          <tr>
+            <td><strong>CPA (Cost Per Action)</strong></td>
+            <td>€30–50</td>
+            <td>Залежить від LTV & retention</td>
+          </tr>
+          <tr>
+            <td><strong>ROAS (7d)</strong></td>
+            <td>1.5–2.5x</td>
+            <td>Photo apps мають хороший retention</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 6: WISEY INTRO -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 2</div>
+      <h2>Аналіз Wisey (Self-Development Platform)</h2>
+      <p class="tagline">Продукт: Платформа для персонального розвитку і коучингу</p>
+
+      <h3>🎯 Короткий опис продукту:</h3>
+      <p>Wisey — це B2C платформа для онлайн-навчання, коучингу та трансформацій. Курси з: кар'єрного зростання, психології, лідерства, комунікації. Основна ЦА — люди 22–45, які переживають кар'єрний перехід або бажають самовдосконалення.</p>
+
+      <h3 style="margin-top:16px;">📊 Ключові показники:</h3>
+      <ul>
+        <li><strong>Користувачів:</strong> ~500K registered, ~80K paying</li>
+        <li><strong>Monetization:</strong> Subscription ($19–99/міс), per-course ($29–299)</li>
+        <li><strong>Average LTV:</strong> ~$150–250 (higher than gaming)</li>
+        <li><strong>Market Position:</strong> Growing EdTech, high ROAS</li>
+      </ul>
+      
+      <hr/>
+      <p><strong>Характеристика EdTech / self‑development ринку як такого, що зростає,</strong> 
+        а також згадки про високий потенційний ROAS базуються на галузевих дослідженнях 
+        ринку персонального розвитку й онлайн‑освіти, 
+        де вказуються темпи зростання сегменту та зростання інвестицій у digital‑освіту. 
+        Конкретні LTV та CPA в слайдах є модельними оцінками, що узгоджуються 
+        з цими тенденціями, але не є офіційною звітністю жодної з компаній.
+      </p>
+    </section>
+
+    <!-- SLIDE 7: WISEY - COMPETITORS & AUDIENCE -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 2</div>
+      <h2>Wisey: Конкуренти & ЦА Segmentation</h2>
+
+      <h3>🏆 Основні конкуренти:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>📚 Mindvalley</h4>
+          <p class="small"><strong>Сильні:</strong> Big names (Tim Ferriss), strong community</p>
+          <p class="small"><strong>Слабкі:</strong> Дорога, можливо scammy reputation</p>
+        </div>
+        <div class="card">
+          <h4>📚 Udemy</h4>
+          <p class="small"><strong>Сильні:</strong> Вибір курсів (200K+), дешево (€10–15)</p>
+          <p class="small"><strong>Слабкі:</strong> Якість варіюється, слабкий support</p>
+        </div>
+        <div class="card">
+          <h4>📚 Coach.me</h4>
+          <p class="small"><strong>Сильні:</strong> Community, accountability</p>
+          <p class="small"><strong>Слабкі:</strong> Smaller audience, niche</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">👥 ЦА Segmentation (2 основні групи):</h3>
+      
+      <div class="card">
+        <h4>💔 "Lost & Seeking" (22–32 років)</h4>
+        <p class="small"><strong>Пейн:</strong> Відчуття загубленості в кар'єрі, невпевненість, конфлікти на роботі</p>
+        <p class="small"><strong>Потреба:</strong> Clarify direction, find purpose, quick wins</p>
+        <p class="small"><strong>Поведінка:</strong> Купує за емоціями, потребує motivation, шукає mentorship</p>
+        <p class="small"><strong>Best Creative:</strong> Трансформаційні історії, inspired quotes, before-after careers</p>
+      </div>
+
+      <div class="card">
+        <h4>🚀 "Growth Hackers" (28–45 років)</h4>
+        <p class="small"><strong>Пейн:</strong> Плато в кар'єрі, потреба в лідерських навичках, нові навички для promotion</p>
+        <p class="small"><strong>Потреба:</strong> Specific tools, frameworks, network, expert knowledge</p>
+        <p class="small"><strong>Поведінка:</strong> Раціональна покупка, хочуть результати, читають reviews</p>
+        <p class="small"><strong>Best Creative:</strong> Експертні perspective shifts, success metrics, ROI-focused copy</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: WISEY - CREATIVES & STRATEGY -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 2</div>
+      <h2>Wisey: Топ-креативи & UGC-Стратегія</h2>
+
+      <h3>🎬 Найкращі creative formats:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>📹 Career Transformation Stories</h4>
+          <p class="small"><strong>Format:</strong> 20–30 сек, testimonial від student</p>
+          <p class="small"><strong>Why:</strong> Social proof, emotional hook, relatability</p>
+          <p class="small"><strong>CTR: 3.2–4%</strong></p>
+        </div>
+        <div class="card">
+          <h4>💡 Expert Perspective Shift</h4>
+          <p class="small"><strong>Format:</strong> Short expert tips, counterintuitive advice</p>
+          <p class="small"><strong>Why:</strong> Authority, stops the scroll, curiosity gap</p>
+          <p class="small"><strong>CTR: 3.8–4.5%</strong></p>
+        </div>
+        <div class="card">
+          <h4>⚡ Quick Tips & Hacks</h4>
+          <p class="small"><strong>Format:</strong> 10–15 сек, single actionable insight</p>
+          <p class="small"><strong>Why:</strong> Fast consumption, shareable, value-first</p>
+          <p class="small"><strong>CTR: 3–3.8%</strong></p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">👤 Найкращі UGC Creator Types:</h3>
+      <ul>
+        <li><strong>Ex-Corporate to Entrepreneur:</strong> Люди, які змінили кар'єру (High credibility, relatable)</li>
+        <li><strong>Millennial Coaches & Therapists:</strong> Молоді фахівці з modern communication style</li>
+        <li><strong>Success Story Testimonials:</strong> Реальні студенти, які досягли результатів</li>
+        <li><strong>Anti-Establishment Experts:</strong> Contrarian voices (high engagement, strong opinion)</li>
+      </ul>
+    </section>
+
+    <!-- SLIDE 9: RUUT INTRO -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 3</div>
+      <h2>Аналіз Ruut (Learning & Certifications)</h2>
+      <p class="tagline">Продукт: Платформа для професійного розвитку і сертифікацій</p>
+
+      <h3>🎯 Короткий опис продукту:</h3>
+      <p>Ruut — це платформа для проф-орієнтованого навчання. Курси з: tech skills (Python, AWS, DevOps), management, business. Основна ЦА — люди 25–45, які хочуть перейти на нову позицію, upgrade skills для карʼєри, або підприємці, які хочуть масштабувати свою справу.</p>
+
+      <h3 style="margin-top:16px;">📊 Ключові показники:</h3>
+      <ul>
+        <li><strong>Користувачів:</strong> ~300K, ~60K paying (20% conversion)</li>
+        <li><strong>Monetization:</strong> Subscription ($29–199/міс), per-cert ($99–399)</li>
+        <li><strong>Average LTV:</strong> ~$180–350 (highest among three)</li>
+        <li><strong>Market Position:</strong> Strong B2B potential, enterprise contracts</li>
+      </ul>
+
+      <hr/>
+      <p><strong>Характеристика EdTech / self‑development ринку як такого, що зростає,</strong> 
+        а також згадки про високий потенційний ROAS базуються на галузевих дослідженнях 
+        ринку персонального розвитку й онлайн‑освіти, 
+        де вказуються темпи зростання сегменту та зростання інвестицій у digital‑освіту. 
+        Конкретні LTV та CPA в слайдах є модельними оцінками, що узгоджуються 
+        з цими тенденціями, але не є офіційною звітністю жодної з компаній.
+      </p>
+    </section>
+
+    <!-- SLIDE 10: RUUT - COMPETITORS & AUDIENCE -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 3</div>
+      <h2>Ruut: Конкуренти & ЦА</h2>
+
+      <h3>🏆 Основні конкуренти:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>📖 Coursera</h4>
+          <p class="small"><strong>Сильні:</strong> Universit partnerships, credentials recognition</p>
+          <p class="small"><strong>Слабкі:</strong> Дорога ($39–79/міс), повільна видача certification</p>
+        </div>
+        <div class="card">
+          <h4>📖 Skillshare</h4>
+          <p class="small"><strong>Сильні:</strong> Creative-focused, дешево, large catalog</p>
+          <p class="small"><strong>Слабкі:</strong> Дешева репутація, employment prospects</p>
+        </div>
+        <div class="card">
+          <h4>📖 LinkedIn Learning</h4>
+          <p class="small"><strong>Сильні:</strong> LinkedIn integration, employer recognition</p>
+          <p class="small"><strong>Слабкі:</strong> Hidden behind premium ($39/міс), limited scope</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">👥 ЦА Segmentation:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Age</th>
+            <th>Motivation</th>
+            <th>Budget</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Career Switchers</strong></td>
+            <td>25–35</td>
+            <td>Escape current job, learn new skills (tech/business)</td>
+            <td>€150–500 total</td>
+          </tr>
+          <tr>
+            <td><strong>University Alternative</strong></td>
+            <td>18–25</td>
+            <td>Skip 4-year degree, get job-ready skills faster</td>
+            <td>€50–200 total (price-sensitive)</td>
+          </tr>
+          <tr>
+            <td><strong>Upskilling Professionals</strong></td>
+            <td>32–45</td>
+            <td>Stay relevant, get promotion, future-proof career</td>
+            <td>€200–1000 (employer may pay)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 11: RUUT - CREATIVES & METRICS -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Частина 3</div>
+      <h2>Ruut: Топ-креативи & Очікувані Метрики</h2>
+
+      <h3>🎬 Найкращі creative formats:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>💼 Job Result / Salary Increase</h4>
+          <p class="small"><strong>Format:</strong> Case study, "I landed a $150K role after..."</p>
+          <p class="small"><strong>Why:</strong> ROI-focused, aspirational, direct value prop</p>
+          <p class="small"><strong>CTR: 3.5–4.2%</strong></p>
+        </div>
+        <div class="card">
+          <h4>🎓 Employer Testimonial</h4>
+          <p class="small"><strong>Format:</strong> HR/Manager perspective: "We hire from Ruut..."</p>
+          <p class="small"><strong>Why:</strong> B2B angle, credibility, de-risks decision</p>
+          <p class="small"><strong>CTR: 3–3.8%</strong></p>
+        </div>
+        <div class="card">
+          <h4>🤔 Skepticism Breakdown</h4>
+          <p class="small"><strong>Format:</strong> "Why bootcamps don't work (but Ruut does)"</p>
+          <p class="small"><strong>Why:</strong> Addresses objections, educational, thought leader</p>
+          <p class="small"><strong>CTR: 3.8–4.5%</strong></p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">📊 Очікувані метрики для Ruut:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Метрика</th>
+            <th>Benchmark</th>
+            <th>Примітка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CTR</strong></td>
+            <td>3–4.5%</td>
+            <td>Highest LTV = більший budget для ads</td>
+          </tr>
+          <tr>
+            <td><strong>CPL (Cost Per Lead)</strong></td>
+            <td>€5–15</td>
+            <td>Залежить від targeting & creative</td>
+          </tr>
+          <tr>
+            <td><strong>CPA (Cost Per Paid)</strong></td>
+            <td>€60–100</td>
+            <td>Вище, ніж Visify, але вищий LTV</td>
+          </tr>
+          <tr>
+            <td><strong>ROAS (30d)</strong></td>
+            <td>2–3.5x</td>
+            <td>Найвищий серед трьох продуктів</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 12: SUMMARY TABLE -->
+    <section class="slide">
+      <div class="pill">Завдання 2 – Порівняння</div>
+      <h2>Порівняльна таблиця 3 продуктів</h2>
+
+      <table style="font-size:11px;">
+        <thead>
+          <tr>
+            <th>Параметр</th>
+            <th>Visify</th>
+            <th>Wisey</th>
+            <th>Ruut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ніша</strong></td>
+            <td>Photo Editing</td>
+            <td>Self-Development</td>
+            <td>Professional Learning</td>
+          </tr>
+          <tr>
+            <td><strong>ЦА (Primary)</strong></td>
+            <td>Social Media (16–28)</td>
+            <td>Career Seekers (22–45)</td>
+            <td>Professionals (25–45)</td>
+          </tr>
+          <tr>
+            <td><strong>LTV (Expected)</strong></td>
+            <td>$15–25</td>
+            <td>$150–250</td>
+            <td>$180–350</td>
+          </tr>
+          <tr>
+            <td><strong>CPA (Estimate)</strong></td>
+            <td>€30–50</td>
+            <td>€40–70</td>
+            <td>€60–100</td>
+          </tr>
+          <tr>
+            <td><strong>ROAS (7–30d)</strong></td>
+            <td>1.5–2.5x</td>
+            <td>2–2.5x</td>
+            <td>2–3.5x</td>
+          </tr>
+          <tr>
+            <td><strong>Best Platform</strong></td>
+            <td>TikTok, IG Reels</td>
+            <td>Facebook, LinkedIn</td>
+            <td>LinkedIn, YouTube</td>
+          </tr>
+          <tr>
+            <td><strong>Top Creative</strong></td>
+            <td>Before/After, Time-lapse</td>
+            <td>Transformation Story, Expert Tips</td>
+            <td>Job Result, Skepticism Breakdown</td>
+          </tr>
+          <tr>
+            <td><strong>CTR Avg</strong></td>
+            <td>3.5–4.2%</td>
+            <td>3–4.5%</td>
+            <td>3–4.5%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SLIDE 13: TESTING STRATEGY -->
+    <section class="slide">
+      <div class="pill">Рекомендації</div>
+      <h2>Стратегія тестування & рекомендації</h2>
+
+      <h3>📋 2-фазна стратегія закупки:</h3>
+      
+      <div class="card">
+        <h4>Фаза 1: Тестування (Тиждень 1–2)</h4>
+        <p class="small"><strong>Бюджет:</strong> €600–900 (по €200–300 на продукт)</p>
+        <p class="small"><strong>Мета:</strong> Визначити, які креативи й платформи роблять найкраще CTR & CPA</p>
+        <p class="small"><strong>Процес:</strong> 3–5 креативних варіацій на кожен продукт, A/B тестування на Facebook/Instagram</p>
+        <p class="small"><strong>KPI для масштабування:</strong> CPA ≤ 50% LTV, CTR ≥ 2.5%</p>
+      </div>
+
+      <div class="card">
+        <h4>Фаза 2: Масштабування (Тиждень 3+)</h4>
+        <p class="small"><strong>Бюджет:</strong> €3,000–5,000 (розподіл за ROAS)</p>
+        <p class="small"><strong>Мета:</strong> Максимізувати volume на winning creatives</p>
+        <p class="small"><strong>Стратегія:</strong> Наростити бюджет переможців на 20–30% щоденно, необхідний моніторинг CPA/ROAS</p>
+        <p class="small"><strong>Приклад розподілу:</strong> Ruut 40%, Wisey 35%, Visify 25% (за очікуваним ROAS)</p>
+      </div>
+
+      <h3 style="margin-top:20px;">🎯 Per-Product Recommendations:</h3>
+      <ul>
+        <li><strong>Visify:</strong> Prioritize TikTok & IG Reels (youth audience). Test 3 before/after + 2 time-lapse creative variants. Expected CTR: 3.8–4.2%, CPA: €35–45</li>
+        <li><strong>Wisey:</strong> Run on Facebook & LinkedIn. Test storytelling (Lost & Seeking segment) + expert tips (Growth Hackers). Expected CTR: 3.2–4%, CPA: €45–65</li>
+        <li><strong>Ruut:</strong> YouTube + LinkedIn Ads. Test job-result case studies + skepticism breakdown. Expected CTR: 3.5–4.5%, CPA: €70–90, but highest ROAS</li>
+      </ul>
+    </section>
+
+    <!-- SLIDE 14: FINAL METRICS & FORECAST -->
+    <section class="slide">
+      <div class="pill">Рекомендації</div>
+      <h2>Фінальний прогноз & ROI Калькуляція</h2>
+
+      <h3>📊 Прогнозний результат за 4 тижні:</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Продукт</th>
+            <th>Total Budget</th>
+            <th>Est. Conversions</th>
+            <th>Est. Revenue</th>
+            <th>ROAS</th>
+          </tr>
+        </thead>
+        <tbody class="highlight">
+          <tr>
+            <td><strong>Visify</strong></td>
+            <td>€1,500</td>
+            <td>35–40 users</td>
+            <td>€525–1,000</td>
+            <td>0.35–0.67x</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Wisey</strong></td>
+            <td>€1,750</td>
+            <td>25–30 users</td>
+            <td>€3,750–7,500</td>
+            <td>2.1–4.3x</td>
+          </tr>
+          <tr class="highlight">
+            <td><strong>Ruut</strong></td>
+            <td>€2,000</td>
+            <td>20–25 users</td>
+            <td>€3,600–8,750</td>
+            <td>1.8–4.4x</td>
+          </tr>
+          <tr>
+            <td><strong>TOTAL</strong></td>
+            <td>€5,250</td>
+            <td>80–95 users</td>
+            <td>€7,875–17,250</td>
+            <td>1.5–3.3x</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top:20px;">💡 Ключові висновки:</h3>
+      <ul>
+        <li><span class="accent-purple">Ruut & Wisey</span> мають найвищий ROAS (2–4x) — вищий LTV окупає більшу CPA</li>
+        <li><span class="accent-pink">Visify</span> має найнижчу LTV, але може масштабуватися на volume (social media audience більша)</li>
+        <li><strong>Оптимальний mix:</strong> 40% Ruut, 35% Wisey, 25% Visify для максимізації загального ROAS</li>
+        <li><strong>Next Step:</strong> Запустити Фазу 1 (тестування) з €600 — найнижча ціна входу в лідерів ніш</li>
+      </ul>
+    </section>
+
+    <!-- SLIDE 15: PLATFORM STRATEGY -->
+    <section class="slide">
+      <div class="pill">Рекомендації</div>
+      <h2>Платформа & Channel Strategy</h2>
+
+      <h3>📱 Рекомендовані платформи за продуктом:</h3>
+      <div class="three-col">
+        <div class="card">
+          <h4>TikTok & Instagram Reels</h4>
+          <p class="small">✅ Visify (лідер в ЦА 16–28)</p>
+          <p class="small">🔄 Wisey (для Lost & Seeking segment)</p>
+          <p class="small">CTR часто 4–6% (highest engagement)</p>
+          <p class="small">⚠️ iOS 15+ limitations on tracking</p>
+        </div>
+        <div class="card">
+          <h4>Facebook & LinkedIn Ads</h4>
+          <p class="small">✅ Wisey (Career focus, targeting accuracy)</p>
+          <p class="small">✅ Ruut (Professional audience)</p>
+          <p class="small">Найкращий targeting за job titles & interests</p>
+          <p class="small">Lower CTR, but higher quality leads</p>
+        </div>
+        <div class="card">
+          <h4>YouTube & YouTube Shorts</h4>
+          <p class="small">✅ Ruut (educational content, trust builder)</p>
+          <p class="small">🔄 Wisey (storytelling format)</p>
+          <p class="small">Довідеоконтент дорожче, але вище conversion</p>
+          <p class="small">Excellent for authority positioning</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">⚡ Платформа vs. ROAS прогноз:</h3>
+      <ul>
+        <li><strong>TikTok:</strong> Highest CTR (4–6%), lowest CPA, но lowest LTV (Visify ideal)</li>
+        <li><strong>Facebook:</strong> Mid CTR (2.5–3.5%), best targeting, reliable performance (Wisey sweet spot)</li>
+        <li><strong>LinkedIn:</strong> Low CTR (1.5–2.5%), but premium audience, highest quality leads (Ruut premium segment)</li>
+        <li><strong>YouTube:</strong> Mid CTR (2–3%), high trust, long-form content (Ruut & Wisey for case studies)</li>
+      </ul>
+    </section>
+
+    <!-- SLIDE 16: NEXT STEPS -->
+    <section class="slide">
+      <div class="pill">Завершення</div>
+      <h2>Next Steps & Action Plan</h2>
+
+      <h3>✅ Прямо зараз (Week 1):</h3>
+      <ul>
+        <li>📌 Сформувати 15 creative assets (5 на продукт) за рекомендованими форматами</li>
+        <li>📌 Налаштувати тестові кампанії на Facebook/TikTok з бюджетом €600</li>
+        <li>📌 Встановити pixel tracking & event setup для точного вимірювання CPA</li>
+        <li>📌 Запустити A/B тестування для 3 варіантів headline + 2 варіантів creative per продукт</li>
+      </ul>
+
+      <h3 style="margin-top:16px;">📊 Week 2–3 (Аналіз & Оптимізація):</h3>
+      <ul>
+        <li>🔍 Проаналізувати CTR, CPC, CPA за кожною кампанією</li>
+        <li>🔍 Визначити winning creatives (CTR ≥ 2.5%, CPA ≤ 50% LTV)</li>
+        <li>🔍 Pause losers, double budget на winners</li>
+        <li>🔍 Запустити Фазу 2 з €3,000 бюджету</li>
+      </ul>
+
+      <h3 style="margin-top:16px;">🚀 Week 4+ (Масштабування):</h3>
+      <ul>
+        <li>💰 Наростити бюджет на 20–30% щоденно (якщо ROAS > 2x)</li>
+        <li>💰 Запустити retargeting кампанії для install but non-paying users</li>
+        <li>💰 Тестувати нові платформи (YouTube, LinkedIn) для top-performers</li>
+        <li>💰 Підготувати сезонні кампанії (Q1 New Year, Q3 Career Changes)</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- НАВІГАЦІЯ -->
+  <div class="nav">
+    <button id="prevSlide">← Попередній</button>
+    <div class="nav-indicator"><span id="slideCounter">1</span>/16</div>
+    <button id="nextSlide">Наступний →</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+    let current = 0;
+
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      slideCounter.textContent = current + 1;
+    }
+
+    document.getElementById('nextSlide').addEventListener('click', () => {
+      showSlide(current + 1);
+    });
+
+    document.getElementById('prevSlide').addEventListener('click', () => {
+      showSlide(current - 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        showSlide(current + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        showSlide(current - 1);
+      }
+    });
+
+    document.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        showSlide(current + 1);
+      } else {
+        showSlide(current - 1);
+      }
+    }, { passive: false });
+  </script>
+
+</body>
+</html>
