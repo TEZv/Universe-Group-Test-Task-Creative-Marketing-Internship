@@ -1,1 +1,1 @@
-# Universal-Group-Test-Task-Creative-Marketing-Internship
+# Universe-Group-Test-Task-Creative-Marketing-Internship
